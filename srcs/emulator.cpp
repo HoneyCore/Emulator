@@ -1,5 +1,5 @@
 /**
- * @file vm.cpp
+ * @file emulator.cpp
  * @author Mathias Couriol (mathias.couriol@gmail.com)
  * @brief Basically the main class linking every other classes. The virtual machine in fact
  * @version 0.1
