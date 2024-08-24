@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author Mathias Couriol (mathias.couriol@gmail.com)
- * @brief The main to run the vm
+ * @brief The main to run the emulator
  * @version 0.1
  * @date 2022-04-13
  * 
