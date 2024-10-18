@@ -6,15 +6,15 @@
 class Peripheral
 {
     protected:
-        uint32 beginning_address;
-        uint32 end_address;
+        uint64 beginning_address;
+        uint64 end_address;
     
     public:
         Peripheral(int begin, int end);
         virtual void execOrder() = 0;
         virtual std::string getName();
-        uint32 getBeginAddr(void);
-        uint32 getEndAddr(void);
+        uint64 getBeginAddr(void);
+        uint64 getEndAddr(void);
 };
 
 #endif

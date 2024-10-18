@@ -11,12 +11,12 @@ std::string Peripheral::getName()
     return "Peripheral";
 }
 
-uint32 Peripheral::getBeginAddr()
+uint64 Peripheral::getBeginAddr()
 {
     return this->beginning_address;
 }
 
-uint32 Peripheral::getEndAddr()
+uint64 Peripheral::getEndAddr()
 {
     return this->end_address;
 }

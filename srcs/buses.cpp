@@ -41,7 +41,7 @@ uint64 Buses::getDataBus(void)
  * 
  * @return uint32 
  */
-uint32 Buses::getAddressBus(void)
+uint64 Buses::getAddressBus(void)
 {
     return (this->addressBus);
 }
@@ -76,7 +76,7 @@ void Buses::setDataBus(uint64 data)
  * 
  * @param address 
  */
-void Buses::setAddressBus(uint32 address)
+void Buses::setAddressBus(uint64 address)
 {
     this->addressBus = address;
 }
@@ -107,7 +107,7 @@ void Buses::addObserver(Peripheral *p)
     this->observerList.push_back(p);
 }
 
-void Buses::setBusesAndNotify(uint8 rw, uint32 address, uint8 size)
+void Buses::setBusesAndNotify(uint8 rw, uint64 address, uint8 size)
 {
     this->setAddressBus(address);
     this->setReadWritePin(rw);
@@ -115,7 +115,7 @@ void Buses::setBusesAndNotify(uint8 rw, uint32 address, uint8 size)
     this->notifyPeriph();
 }
 
-void Buses::setBusesAndNotify(uint8 rw, uint32 address, uint64 data, uint8 size)
+void Buses::setBusesAndNotify(uint8 rw, uint64 address, uint64 data, uint8 size)
 {
     this->setAddressBus(address);
     this->setReadWritePin(rw);

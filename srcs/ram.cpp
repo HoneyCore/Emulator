@@ -16,13 +16,13 @@
  * @param size 
  * @param b 
  */
-Ram::Ram(uint32 size, Buses *b) : 
+Ram::Ram(uint64 size, Buses *b) : 
 Peripheral::Peripheral(0, size)
 {
     this->ram_size = size;
     this->ram = new uint8[this->ram_size];
     this->buses = b;
-    for (uint32 i = 0; i < this->ram_size; i++)
+    for (uint64 i = 0; i < this->ram_size; i++)
     {
         this->ram[i] = 0xFF;
     }
@@ -41,9 +41,9 @@ Ram::~Ram()
 /**
  * @brief Return the total RAM size
  * 
- * @return uint32 
+ * @return uint64 
  */
-uint32 Ram::getRamSize(void)
+uint64 Ram::getRamSize(void)
 {
     return (this->ram_size);
 }
@@ -56,7 +56,7 @@ uint32 Ram::getRamSize(void)
 void Ram::setMemoryTo(std::string fileName)
 {
     unsigned char temp = 0;
-    uint32 i = 0;
+    uint64 i = 0;
     std::ifstream file;
     file.open(fileName);
     while (file)
@@ -74,7 +74,7 @@ void Ram::setMemoryTo(std::string fileName)
  * @param address 
  * @return uint8 
  */
-uint8 Ram::readAddr8(uint32 address)
+uint8 Ram::readAddr8(uint64 address)
 {
     return (this->ram[address]);
 }
@@ -85,7 +85,7 @@ uint8 Ram::readAddr8(uint32 address)
  * @param address 
  * @param data 
  */
-void Ram::storeAddr8(uint32 address, uint8 data)
+void Ram::storeAddr8(uint64 address, uint8 data)
 {
     this->ram[address] = data;
 }
@@ -94,9 +94,9 @@ void Ram::storeAddr8(uint32 address, uint8 data)
  * @brief read a 32 bits int from memory
  * 
  * @param address 
- * @return uint32 
+ * @return uint64 
  */
-uint32 Ram::readAddr32(uint32 address)
+uint32 Ram::readAddr32(uint64 address)
 {
     uint32 res = ((uint32)this->ram[address] << 24) | ((uint32)this->ram[address + 1] << 16)
     | ((uint32)this->ram[address + 2] << 8) | ((uint32)this->ram[address + 3]);
@@ -109,7 +109,7 @@ uint32 Ram::readAddr32(uint32 address)
  * @param address 
  * @param data 
  */
-void Ram::storeAddr32(uint32 address, uint32 data)
+void Ram::storeAddr32(uint64 address, uint32 data)
 {
     this->ram[address]      = data & 0xFF000000 >> 24;
     this->ram[address + 1]  = data & 0x00FF0000 >> 16;
@@ -123,7 +123,7 @@ void Ram::storeAddr32(uint32 address, uint32 data)
  * @param address
  * @return uint64
  */
-uint64 Ram::readAddr64(uint32 address)
+uint64 Ram::readAddr64(uint64 address)
 {
     uint64 res = ((uint64)this->ram[address] << 56) | ((uint64)this->ram[address + 1] << 48)
     | ((uint64)this->ram[address + 2] << 40) | ((uint64)this->ram[address + 3] << 32)
@@ -139,7 +139,7 @@ uint64 Ram::readAddr64(uint32 address)
  * @param address 
  * @param data 
  */
-void Ram::storeAddr64(uint32 address, uint64 data)
+void Ram::storeAddr64(uint64 address, uint64 data)
 {
     this->ram[address]     = data & 0xFF00000000000000 >> 56;
     this->ram[address + 1] = data & 0x00FF000000000000 >> 48;

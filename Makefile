@@ -1,6 +1,6 @@
 CC		=	g++
 CFLAGS	=	-Wall -Wextra -Werror
-SDLFLAG	=	-lSDL2_image -g `sdl2-config --cflags --libs`
+SDLFLAG	=	-g `sdl2-config --cflags --libs`
 SRC_DIR	=	srcs
 OBJ_DIR	=	build
 INCLUDE	=	include
@@ -39,7 +39,7 @@ fclean: clean
 
 re:
 	$(MAKE) fclean
-	$(MAKE) $(BIN)
+	$(MAKE) all
 
 .PHONY: clean fclean re all
 .SILENT:
